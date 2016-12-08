@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>HEX</title>
+    <link href="css/main.css" rel="stylesheet">
+    <script src="js/controllerLayer.js"></script>
+    <script src="js/modelLayer.js"></script>
+    <script src="js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<header>
+    <h1>HEX</h1>
+    <div id="newgamebutton" onclick="startGame(context)" >开始游戏</div>
+    <p>score: <span id="score">0</span></p>
+</header>
+<div id="canvas-warp">
+    <canvas id="canvas">
+        你的浏览器居然不支持Canvas？！赶快换一个吧！！
+    </canvas>
+</div>
+
+
+<script>
+
+    var canvas = document.getElementById("canvas");
+    canvas.width = game_width;
+    canvas.height = game_width;
+    var context = canvas.getContext("2d");
+
+    // 监听键盘按键，按下时调用moveKeyDown函数
+    window.addEventListener('keydown', moveKeyDown, true);
+
+
+    window.onload = function(){
+
+        // 开始游戏
+        startGame(context);
+
+        // 防止下滑时浏览器滚动
+        $("body").bind("touchmove",function(event){
+            event.preventDefault();
+        });
+    }
+
+</script>
+</body>
+</html>
