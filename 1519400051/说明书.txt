@@ -1,0 +1,7 @@
+修改效果：使得产生新的数字时有动画效果
+
+修改了modelLayer.js中的drawBox函数里的switch语句
+在switch语句中定义了新的函数drawStyle_<num>()，绘画新盒子的背景色
+并使用了setInterval()使得背景渐渐变大，最后fillText()绘画上<num>
+
+BUG：使用setInterval()逐帧渲染，运行代码次数过多，动画效果不稳定。

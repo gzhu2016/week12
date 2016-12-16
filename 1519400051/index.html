@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>2048</title>
+    <link rel="stylesheet" href="./css/main.css"/>
+    <script src="./javascript/controllerLayer.js"></script>
+    <script src="./javascript/modelLayer.js"></script>
+    <script src="./javascript/jquery-2.1.4.min.js"></script>
+</head>
+<body style="background: url(./images/bg.jpg);">
+<header>
+    <h1>2048</h1>
+    <div id="newgamebutton" onclick="startGame(context)">开始游戏</div>
+    <p>score:<span id="score">0</span></p>
+</header>
+<div id="canvas-warp">
+    <canvas id="canvas">
+        你的浏览器不支持canvas，赶紧换一个吧。
+    </canvas>
+    <br>
+    <div style="text-align: center; font-size: 24px; font-weight: bold;">
+    游戏规则：↑↓←→<br>
+    水平有限，动画效果不稳定，最好等全部数字加载完再进行下一步操作。(｡･∀･)ﾉﾞ</div>
+</div>
+<script>
+    var canvas = document.getElementById('canvas');
+    canvas.width = game_width;
+    canvas.height = game_width;
+    var context = canvas.getContext('2d');
+
+    window.addEventListener('keydown' , moveKeyDown, true);
+    window.onload = function () {
+
+        startGame(context);
+
+        $("body").bind("touchmove" , function(event){
+            event.preventDefault();
+        });
+    }
+</script>
+</body>
+</html>
