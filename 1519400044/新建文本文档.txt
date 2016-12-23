@@ -1,0 +1,86 @@
+把数字2，4，8....
+改为了朝代：夏商周秦汉晋北隋唐宋元明清
+
+
+function updateStep(step){               //刷新步数的函数
+    document.getElementById("step").innerText = step
+}
+function moveKeyDown() {
+    event.preventDefault()
+    switch (event.keyCode) {
+        // 37是方向左键
+        case 37: //left
+            if (moveLeft()) { //为空或者相等
+                // 若可以向左移动，则创建新方块
+                newBox(context)
+                    // 之后判断游戏是否结束
+                isGameOver()
+                step++                    //触发了则步数+1
+                updateStep(step)
+            }
+            break
+监控上下左右，从而计步
+通过以上来进行计算步数
+
+
+function updateZi(zi){
+    document.getElementById("zi").innerText = zi
+}
+
+function Zhuan(){                         //定义zhuan函数 输出标题朝代的变化
+    lei++
+        console.log(lei)
+        switch (lei) {
+            case 1:
+                zi = "商";
+                updateZi(zi);
+                break;
+            case 2:
+                zi = "周";
+                updateZi(zi);
+                break
+            case 3:
+                zi = "秦";
+                updateZi(zi);
+                break
+            case 4:
+                zi = "汉";
+                updateZi(zi);
+                break
+            case 5:
+                zi = "晋";
+                updateZi(zi);
+                break
+            case 6:
+                zi = "北";
+                updateZi(zi);
+                break
+            case 7:
+                zi = "隋";
+                updateZi(zi);
+                break
+            case 8:
+                zi = "唐";
+                updateZi(zi);
+                break
+            case 9:
+                zi = "宋";
+                updateZi(zi);
+                break
+            case 10:
+                zi = "元";
+                updateZi(zi);
+                break
+            case 11:
+                zi = "明";
+                updateZi(zi);
+                break
+            case 12:
+                zi = "清";
+                updateZi(zi);
+                break
+            default:
+                break
+        }
+    }
+通过监控上下左右操作后，数的相加是否大于zhuan，来使lei+1；从而改变2048下的你是？？的皇帝的朝代
