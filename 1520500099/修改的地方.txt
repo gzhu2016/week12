@@ -1,0 +1,22 @@
+修改UI：
+var color_bg = "#FFB6C1"
+var color_0 = "#FFC0CB"
+var color_2 = "#DC143C"
+var color_4 = "#FFF0F5"
+var color_8 = "#DB7093"
+var color_16 = "#F8955C"
+var color_32 = "#FF69B4"
+var color_64 = "#C71585"
+var color_128 = "#ECCF85"
+var color_256 = "#EE82EE"
+var color_512 = "#EEC944"
+var color_1024 = "#FF00FF"
+var color_2048 = "#8B008B"
+var color_4096 = "#EEC944"
+var color_8192 = "#4B0082"
+var color_text1 = "#191970"
+var color_text2 = "#000000"
+
+var documentWidth = window.screen.availWidth > 800 ? 800 : window.screen.availWidth
+
+目的：这样更好看些~
