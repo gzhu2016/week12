@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <!--so ... actually, what dose those above mean?-->
+    <title>2048 double</title>
+    <link href="css/main.css" rel="stylesheet">
+
+    <script src="js/controllerLayer.js"></script>
+    <script src="js/modelLayer.js"></script>
+    <script src="js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<header>
+    <h1>2048 double</h1>
+
+    <div id="newGameButton" onclick="startGame(context)">Start Game</div>
+    <p>player1 score:<span id="score1">0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        player2 score:<span id="score2">0</span> </p><!-- what does "span" mean-->
+
+    <!--better solution?????????-->
+</header>
+<div id="canvas-warp">
+    <canvas id="canvas">
+        Sorry, your brower doesn't support Canvas. Please download the newest Google Chrome~
+    </canvas>
+</div>
+
+<script>
+
+    var canvas = document.getElementById("canvas");
+    canvas.width = game_width * 4;
+    canvas.height = game_width;
+    var context = canvas.getContext("2d");
+    //    usually, this part is on xx.js, isn't it?
+
+    window.addEventListener('keydown', moveKeyDown, true);
+
+    window.onload = function () {
+
+        startGame(context);
+
+        $("body").bind("touchmove",function (event) {
+            event.preventDefault();
+//      this part is for in case the brower interface will move when you press the button
+        })
+    }
+
+    //I still find a bug in Airing's code, that when the final score come out, the interface haven't update,
+    // and when you close the window, the interface will update the last move you make
+
+</script>
+</body>
+</html>
