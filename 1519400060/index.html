@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>2048</title>
+    <link href="./css/main.css" rel="stylesheet">
+    <script src="./js/controllerLayer.js"></script>
+    <script src="./js/modelLayer.js"></script>
+    <script src="./js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<header>
+    <h1>2048</h1>
+    <div id="newgamebutton" onclick="startGame(context)" >开始</div>
+    <div>
+        <div id="DoDbutton4" onclick="DoD(context,4)" style="display: inline">初级</div>
+        <div id="DoDbutton5" onclick="DoD(context,5)" style="display: inline">中级</div>
+        <div id="DoDbutton6" onclick="DoD(context,6)" style="display: inline">高级</div>
+        <div id="DoDbutton1" onclick="DoD(context,1)" style="display: inline">自定义</div>
+    </div>
+    <div id="DoDbutton0" onclick="DoD(context,0)">幸运星模式<span id="LMstatus">off</span></div>
+    <p style="display: inline;">record: </p>
+    <div>
+        <p style="display: inline;">E <span id="Erecord">0</span></p>
+        <p style="display: inline;">M <span id="Mrecord">0</span></p>
+        <p style="display: inline;">H <span id="Hrecord">0</span></p>
+    </div>
+    <div>
+        <p style="display: inline;">EL <span id="ELrecord">0</span></p>
+        <p style="display: inline;">DL <span id="MLrecord">0</span></p>
+        <p style="display: inline;">HL <span id="HLrecord">0</span></p>
+    </div>
+    <p>score: <span id="score">0</span></p>
+    <div id="recallbutton" onclick="recall(context)">退步</div>
+</header>
+<div id="canvas-warp">
+    <canvas id="canvas">
+        你的浏览器居然不支持Canvas？！赶快换一个吧！！
+    </canvas>
+</div>
+
+<script>
+
+    var canvas = document.getElementById("canvas");
+    canvas.width = game_width;
+    canvas.height = game_width;
+    var context = canvas.getContext("2d");
+
+    // 监听键盘按键，按下时调用moveKeyDown函数
+    window.addEventListener('keydown', moveKeyDown, true);
+
+
+    window.onload = function(){
+
+        // 开始游戏
+        startGame(context);
+
+        // 防止下滑时浏览器滚动
+        $("body").bind("touchmove",function(event){
+            event.preventDefault();
+        });
+    }
+
+</script>
+</body>
+</html>
